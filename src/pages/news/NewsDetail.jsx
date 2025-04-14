@@ -4,7 +4,7 @@ import Tags from '../../components/pages/Tags';
 import CommentForm from './CommentForm';
 import CommentList from './CommentList';
 import { useNavigate, useParams } from 'react-router-dom';
-import { getNewsDetail } from '../../services/newsService';
+import { getNewsDetail, increaseView } from '../../services/newsService';
 import { formatDate } from '../../utilities/utils';
 import { useAuth } from '../../hooks/useAuth';
 
@@ -14,6 +14,16 @@ const NewsDetail = () => {
 	const navigate = useNavigate();
 
 	const [news, setNews] = useState();
+
+	const onIncreaseView = async () => {
+		try {
+            const response = await increaseView(newsId);
+            const fetchedNews = response.data;
+            setNews(fetchedNews);
+        } catch (error) {   
+            console.log(error);
+        }
+	}
 
 	const fetchNews = async () => {
 		try {
@@ -26,6 +36,7 @@ const NewsDetail = () => {
 	}
 
 	useEffect(() => {
+		onIncreaseView();
 		fetchNews();
 	}, []);
 
@@ -84,7 +95,7 @@ const NewsDetail = () => {
 								</div>
 							</div>
 						</div>
-						<CommentList comments={news?.comments ?? []}/>
+						<CommentList comments={news?.comments ?? []} newsId={newsId} refetch={fetchNews}/>
 						<CommentForm newsId={newsId} refetch={fetchNews}/>
 					</div>
 					<Tags />

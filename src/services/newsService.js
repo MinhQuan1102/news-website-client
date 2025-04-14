@@ -1,6 +1,26 @@
 import { toast } from "react-toastify";
 import axiosInstance from "./axiosInterceptor";
 
+export const getFeaturedNews = async ({ page, pageSize }) => {
+    try {
+        const response = await axiosInstance.get(`/news/featured?page=${page}&pageSize=${pageSize}`);
+        return response;
+    } catch (error) {
+        toast.error(error?.message);
+        console.error(error);
+    }
+}
+
+export const getLatestNews = async ({ page, pageSize }) => {
+    try {
+        const response = await axiosInstance.get(`/news/latest?page=${page}&pageSize=${pageSize}`);
+        return response;
+    } catch (error) {
+        toast.error(error?.message);
+        console.error(error);
+    }
+}
+
 export const getNewsCategory = async () => {
     try {
         const response = await axiosInstance.get(`/news/category`);
@@ -24,6 +44,26 @@ export const getNewsOfUser = async ({ userId, page, pageSize}) => {
 export const getNewsByCategory = async ({ category, page, pageSize}) => {
     try {
         const response = await axiosInstance.get(`/news?category=${category}&page=${page}&pageSize=${pageSize}`);
+        return response;
+    } catch (error) {
+        toast.error(error?.message);
+        console.error(error);
+    }
+}
+
+export const searchNews = async ({ keyword, page, pageSize}) => {
+    try {
+        const response = await axiosInstance.get(`/news/search?keyword=${keyword}&page=${page}&pageSize=${pageSize}`);
+        return response;
+    } catch (error) {
+        toast.error(error?.message);
+        console.error(error);
+    }
+}
+
+export const increaseView = async (newsId) => {
+    try {
+        const response = await axiosInstance.put(`/news/${newsId}/view`);
         return response;
     } catch (error) {
         toast.error(error?.message);

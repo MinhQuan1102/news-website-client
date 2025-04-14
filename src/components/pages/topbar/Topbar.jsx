@@ -1,4 +1,5 @@
 import React from 'react';
+import { formatDate } from '../../../utilities/utils';
 
 
 const Topbar = () => {
@@ -16,7 +17,7 @@ const Topbar = () => {
                     </div>
                 </div>
                 <div className="col-md-4 text-right d-none d-md-block">
-                    Monday, January 01, 2045
+                    { formatDate(new Date()) }
                 </div>
             </div>
             <div className="row align-items-center py-2 px-lg-5">

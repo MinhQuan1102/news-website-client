@@ -32,3 +32,15 @@ export const editComment = async ({
         console.error(error);
     }
 }
+
+export const deleteComment = async (
+    commentId,
+) => {
+    try {
+        const response = await axiosInstance.delete(`/comments/${commentId}`);
+        return response;
+    } catch (error) {
+        toast.error(error?.message);
+        console.error(error);
+    }
+}

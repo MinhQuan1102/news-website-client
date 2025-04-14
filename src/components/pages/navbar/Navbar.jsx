@@ -2,20 +2,29 @@ import React from 'react'
 import { useAuth } from '../../../hooks/useAuth';
 import UserDefaultImg from "../../../assets/img/user.jpg"
 import { useLocation } from 'react-router-dom';
-
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
     const { user, clearUser, clearToken } = useAuth();
     const pathname = useLocation().pathname;
+
+    const [keyword, setKeyword] = useState("");
+	const navigate = useNavigate();
 
     const onLogout = () => {
         clearUser();
         clearToken();
     }
 
+    const onSearch = async (e) => {
+        e.preventDefault();
+        navigate(`/search?keyword=${keyword}`);
+    }
+
     return (
         <nav className="navbar navbar-expand-lg bg-light navbar-light py-2 py-lg-0 px-lg-5">
-            <a href="" className="navbar-brand d-block d-lg-none">
+            <a href="/home" className="navbar-brand d-block d-lg-none">
                 <h1 className="m-0 display-5 text-uppercase"><span className="text-primary">News</span>Room</h1>
             </a>
             <button type="button" className="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -24,7 +33,7 @@ const Navbar = () => {
             <div className="collapse navbar-collapse justify-content-between px-0 px-lg-3" id="navbarCollapse">
                 <div className="navbar-nav mr-auto py-0">
                     <a href="/home" className={`nav-item nav-link ${ pathname.includes("/home") ? 'active' : '' }`}>Home</a>
-                    <a href="/category" className={`nav-item nav-link ${ pathname.includes("/category") ? 'active' : '' }`}>Categories</a>
+                    <a href="/category/list" className={`nav-item nav-link ${ pathname.includes("/category/list") ? 'active' : '' }`}>Categories</a>
                     { user && 
                         <a href="/news/create" className={`nav-item nav-link ${ pathname.includes("/news/create") ? 'active' : '' }`}>Create news</a>
                     }
@@ -48,10 +57,10 @@ const Navbar = () => {
                     }
                 </div>
                 <div className="input-group ml-auto" style={{ width: "100%", maxWidth: "300px" }}>
-                    <input type="text" className="form-control" placeholder="Keyword" />
+                    <input type="text" className="form-control" placeholder="Keyword" onChange={(e) => setKeyword(e.target.value)}/>
                     <div className="input-group-append">
                         <button className="input-group-text text-secondary"><i
-                                className="fa fa-search"></i></button>
+                                className="fa fa-search" onClick={onSearch}></i></button>
                     </div>
                 </div>
             </div>

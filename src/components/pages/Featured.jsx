@@ -1,58 +1,47 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import { getFeaturedNews } from '../../services/newsService';
+import { useState, useEffect } from 'react';
+import { formatDate } from '../../utilities/utils';
 
 const Featured = () => {
+    const navigate = useNavigate();
+    const [newsList, setNewsList] = useState([]);
+
+    const fetchFeaturedNews = async () => {
+		try {
+            const response = await getFeaturedNews({ page: 1, pageSize: 4 });
+            const fetchedUserNews = response.data;
+            setNewsList(fetchedUserNews);
+        } catch (error) {   
+            console.log(error);
+        }
+	}
+
+    useEffect(() => {
+        fetchFeaturedNews();
+    }, []);
+
   return (
     <div className="container-fluid py-3">
         <div className="container">
             <div className="d-flex align-items-center justify-content-between bg-light py-2 px-4 mb-3">
                 <h3 className="m-0">Featured</h3>
-                <a className="text-secondary font-weight-medium text-decoration-none" href="">View All</a>
             </div>
             <div className="d-flex position-relative" style={{ gap: "20px" }}>
-                <div className="position-relative overflow-hidden" style={{ height: "300px", flex: 1 }}>
-                    <img className="img-fluid w-100 h-100" src="img/news-300x300-1.jpg" style={{ objectFit: "cover" }} />
-                    <div className="overlay">
-                        <div className="mb-1" style={{ fontSize: "13px" }}>
-                            <a className="text-white" href="">Technology</a>
-                            <span className="px-1 text-white">/</span>
-                            <a className="text-white" href="">January 01, 2045</a>
+                { newsList.map((news) => (
+                    <div className="position-relative overflow-hidden" style={{ height: "300px", flex: 1 }} key={news._id} onClick={() => navigate(`/news/detail/${news._id}`)}>
+                        <img className="img-fluid w-100 h-100" src={ news?.thumbnail } alt="thumbnail" style={{ objectFit: "cover" }} />
+                        <div className="overlay">
+                            <div className="mb-1" style={{ fontSize: "13px" }}>
+                                <a className="text-white text-capitalize" href="">{ news?.category }</a>
+                                <span className="px-1 text-white">/</span>
+                                <a className="text-white" href="">{ formatDate(news?.createdAt )}</a>
+                            </div>
+                            <a className="h4 m-0 text-white" href="">{ news?.title }</a>
                         </div>
-                        <a className="h4 m-0 text-white" href="">Sanctus amet sed ipsum lorem</a>
                     </div>
-                </div>
-                <div className="position-relative overflow-hidden" style={{ height: "300px", flex: 1 }}>
-                    <img className="img-fluid w-100 h-100" src="img/news-300x300-2.jpg" style={{ objectFit: "cover" }} />
-                    <div className="overlay">
-                        <div className="mb-1" style={{ fontSize: "13px" }}>
-                            <a className="text-white" href="">Technology</a>
-                            <span className="px-1 text-white">/</span>
-                            <a className="text-white" href="">January 01, 2045</a>
-                        </div>
-                        <a className="h4 m-0 text-white" href="">Sanctus amet sed ipsum lorem</a>
-                    </div>
-                </div>
-                <div className="position-relative overflow-hidden" style={{ height: "300px", flex: 1 }}>
-                    <img className="img-fluid w-100 h-100" src="img/news-300x300-3.jpg" style={{ objectFit: "cover" }} />
-                    <div className="overlay">
-                        <div className="mb-1" style={{ fontSize: "13px" }}>
-                            <a className="text-white" href="">Technology</a>
-                            <span className="px-1 text-white">/</span>
-                            <a className="text-white" href="">January 01, 2045</a>
-                        </div>
-                        <a className="h4 m-0 text-white" href="">Sanctus amet sed ipsum lorem</a>
-                    </div>
-                </div>
-                <div className="position-relative overflow-hidden" style={{ height: "300px", flex: 1 }}>
-                    <img className="img-fluid w-100 h-100" src="img/news-300x300-4.jpg" style={{ objectFit: "cover" }} />
-                    <div className="overlay">
-                        <div className="mb-1" style={{ fontSize: "13px" }}>
-                            <a className="text-white" href="">Technology</a>
-                            <span className="px-1 text-white">/</span>
-                            <a className="text-white" href="">January 01, 2045</a>
-                        </div>
-                        <a className="h4 m-0 text-white" href="">Sanctus amet sed ipsum lorem</a>
-                    </div>
-                </div>
+                ))}
             </div>
         </div>
     </div>

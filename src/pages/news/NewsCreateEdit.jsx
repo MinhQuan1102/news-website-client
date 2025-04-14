@@ -14,7 +14,7 @@ const NewsCreateEdit = () => {
     const [news, setNews] = useState({
         title: "",
         content: "",
-        category: "",
+        category: "technology",
     });
 
     const [thumbnail, setThumbnail] = useState("");
@@ -118,7 +118,7 @@ const NewsCreateEdit = () => {
                                 <form className="mt-4">
                                     <div className="control-group">
                                         <label htmlFor="title" className="font-weight-bold">Title</label>
-                                        <input type="text" className="form-control p-4" placeholder="Title" name="title" value={news.title} onChange={handleInputChange} autoComplete="off"/>
+                                        <input type="text" className="form-control" placeholder="Title" name="title" value={news.title} onChange={handleInputChange} autoComplete="off"/>
                                         <p className="help-block text-danger"></p>
                                     </div>
                                     <div className="control-group">
@@ -146,7 +146,7 @@ const NewsCreateEdit = () => {
                                         <ImageUpload image={thumbnail} setImage={setThumbnail}/>
                                     </div>
                                     <div>
-                                        <button className="btn btn-primary font-weight-semi-bold px-4" style={{ height: "50px" }} onClick={onSubmit}>Create</button>
+                                        <button className="btn btn-primary font-weight-semi-bold px-4" style={{ height: "50px" }} onClick={onSubmit}>Save</button>
                                     </div>
                                 </form>
                             </div>
