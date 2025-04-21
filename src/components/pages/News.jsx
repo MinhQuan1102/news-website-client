@@ -11,34 +11,34 @@ const News = ({ news }) => {
         <img 
             src={ news.thumbnail ?? UserDefaultImg} 
             alt="thumbnail" 
-            style={{ objectFit: "cover" }} 
+            style={{ objectFit: "cover", height: "300px" }} 
             className="img-fluid w-100"
         />
         <div class="overlay position-relative bg-light">
             
             <div className="mb-2" style={{ fontSize: "14px" }}>
-                <a onClick={() => navigate(`/category/${news.category}`)} className="text-capitalize cursor-pointer">{ news.category }</a>
+                <a onClick={() => navigate(`/category/${news?.category}`)} className="text-capitalize cursor-pointer">{ news.category }</a>
                 <span class="px-1">/</span>
-                <span>{ formatDate(news.createdAt) }</span>
+                <span>{ formatDate(news?.createdAt) }</span>
             </div>
             <div 
                 className="d-flex align-items-center mt-2 cursor-pointer" 
                 style={{ gap: "10px"}}               
-                onClick={() => navigate(`/news/list/${news.author._id}`)}
+                onClick={() => navigate(`/news/list/${news?.author._id}`)}
             >
-                <img src={ news.author.avatar ?? UserDefaultImg } alt="" style={{ width: "50px", height: "50px", objectFit: "cover", borderRadius: "50%"}}/>
+                <img src={ news?.author.avatar ?? UserDefaultImg } alt="" style={{ width: "50px", height: "50px", objectFit: "cover", borderRadius: "50%"}}/>
                 <div className="d-flex flex-column user-info">
-                    <h5>{ news.author.username }</h5>
-                    <span>{ news.author.email }</span>
+                    <h5>{ news?.author.username }</h5>
+                    <span>{ news?.author.email }</span>
                 </div>
             </div>
             <a className="h4 mt-3" 
                 href=""            
                 onClick={() => navigate(`/news/detail/${news._id}`)}
             > 
-                { news.title }
+                { news?.title }
             </a>
-            <p className="m-0" style={{ whiteSpace: "pre-line" }}>{ news.content } </p>
+            <p className="m-0" style={{ whiteSpace: "pre-line" }}>{ news?.content } </p>
             
         </div>
     </div>

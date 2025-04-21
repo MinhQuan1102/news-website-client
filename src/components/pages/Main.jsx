@@ -32,7 +32,7 @@ const Main = () => {
             <div class="row">
                 <div class="col-lg-8">
                     <div class="owl-carousel owl-carousel-2 carousel-item-1 position-relative mb-3 mb-lg-0">
-                        <div class="position-relative overflow-hidden" style={{ height: "435px" }} onClick={() => navigate(`/news/detail/${news._id}`)}>
+                        <div class="position-relative overflow-hidden" style={{ height: "435px" }} onClick={() => navigate(`/news/detail/${news?._id}`)}>
                             <img class="img-fluid h-100 w-100" src={news?.thumbnail} alt="news-banner" style={{ objectFit: "contain" }}/>
                             <div class="overlay">
                                 <div class="mb-1">

@@ -32,95 +32,95 @@ const Footer = () => {
 				</p>
 				<div className="d-flex justify-content-start mt-4">
 					<a
-					className="btn btn-outline-secondary text-center mr-2 px-0"
-					style={{ width: 38, height: 38 }}
-					href="#"
-					>
-					<i className="fab fa-twitter"></i>
-					</a>
-					<a
-					className="btn btn-outline-secondary text-center mr-2 px-0"
-					style={{ width: 38, height: 38 }}
-					href="#"
-					>
-					<i className="fab fa-facebook-f"></i>
-					</a>
-					<a
-					className="btn btn-outline-secondary text-center mr-2 px-0"
-					style={{ width: 38, height: 38 }}
-					href="#"
-					>
-					<i className="fab fa-linkedin-in"></i>
-					</a>
-					<a
-					className="btn btn-outline-secondary text-center mr-2 px-0"
-					style={{ width: 38, height: 38 }}
-					href="#"
-					>
-					<i className="fab fa-instagram"></i>
-					</a>
-					<a
-					className="btn btn-outline-secondary text-center mr-2 px-0"
-					style={{ width: 38, height: 38 }}
-					href="#"
-					>
-					<i className="fab fa-youtube"></i>
-					</a>
-				</div>
-				</div>
-
-				<div className="col-lg-3 col-md-6 mb-5">
-				<h4 className="font-weight-bold mb-4">Categories</h4>
-				<div className="d-flex flex-wrap m-n1">
-					{categories.map((category, index) => (
-						<a
-							key={index}
-							href="#"
-							className="btn btn-sm btn-outline-secondary m-1 text-capitalize"
-							onClick={() => navigate(`/category/${category}`)}
-						>
-							{category}
-						</a>
-					))}
-				</div>
-				</div>
-
-				<div className="col-lg-3 col-md-6 mb-5">
-				<h4 className="font-weight-bold mb-4">Tags</h4>
-				<div className="d-flex flex-wrap m-n1">
-					{categories.map((tag, index) => (
-						<a
-							key={index}
-							href="#"
-							className="btn btn-sm btn-outline-secondary m-1 text-capitalize"
-							onClick={() => navigate(`/category/${tag}`)}
-						>
-							{tag}
-						</a>
-					))}
-				</div>
-				</div>
-
-				<div className="col-lg-3 col-md-6 mb-5">
-				<h4 className="font-weight-bold mb-4">Quick Links</h4>
-				<div className="d-flex flex-column justify-content-start">
-					{[
-					'About',
-					'Advertise',
-					'Privacy & policy',
-					'Terms & conditions',
-					'Contact',
-					].map((link, index) => (
-					<a
-						key={index}
-						className="text-secondary mb-2"
+						className="btn btn-outline-secondary text-center mr-2 px-0"
+						style={{ width: 38, height: 38 }}
 						href="#"
 					>
-						<i className="fa fa-angle-right text-dark mr-2"></i>
-						{link}
+						<i className="fab fa-twitter"></i>
 					</a>
-					))}
+					<a
+						className="btn btn-outline-secondary text-center mr-2 px-0"
+						style={{ width: 38, height: 38 }}
+						href="#"
+					>
+						<i className="fab fa-facebook-f"></i>
+					</a>
+					<a
+						className="btn btn-outline-secondary text-center mr-2 px-0"
+						style={{ width: 38, height: 38 }}
+						href="#"
+					>
+						<i className="fab fa-linkedin-in"></i>
+					</a>
+					<a
+						className="btn btn-outline-secondary text-center mr-2 px-0"
+						style={{ width: 38, height: 38 }}
+						href="#"
+					>
+						<i className="fab fa-instagram"></i>
+					</a>
+					<a
+						className="btn btn-outline-secondary text-center mr-2 px-0"
+						style={{ width: 38, height: 38 }}
+						href="#"
+					>
+						<i className="fab fa-youtube"></i>
+					</a>
 				</div>
+				</div>
+
+				<div className="col-lg-3 col-md-6 mb-5">
+					<h4 className="font-weight-bold mb-4">Categories</h4>
+					<div className="d-flex flex-wrap m-n1">
+						{categories.map((category, index) => (
+							<a
+								key={index}
+								href="#"
+								className="btn btn-sm btn-outline-secondary m-1 text-capitalize"
+								onClick={() => navigate(`/category/${category}`)}
+							>
+								{category}
+							</a>
+						))}
+					</div>
+				</div>
+
+				<div className="col-lg-3 col-md-6 mb-5">
+					<h4 className="font-weight-bold mb-4">Tags</h4>
+					<div className="d-flex flex-wrap m-n1">
+						{categories.map((tag, index) => (
+							<a
+								key={index}
+								href="#"
+								className="btn btn-sm btn-outline-secondary m-1 text-capitalize"
+								onClick={() => navigate(`/category/${tag}`)}
+							>
+								{tag}
+							</a>
+						))}
+					</div>
+				</div>
+
+				<div className="col-lg-3 col-md-6 mb-5">
+					<h4 className="font-weight-bold mb-4">Quick Links</h4>
+					<div className="d-flex flex-column justify-content-start">
+						{[
+						'About',
+						'Advertise',
+						'Privacy & policy',
+						'Terms & conditions',
+						'Contact',
+						].map((link, index) => (
+						<a
+							key={index}
+							className="text-secondary mb-2"
+							href="#"
+						>
+							<i className="fa fa-angle-right text-dark mr-2"></i>
+							{link}
+						</a>
+						))}
+					</div>
 				</div>
 			</div>
 		</div>

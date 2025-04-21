@@ -31,42 +31,42 @@ const Latest = () => {
 
   	return (
     	<div id="category">
-      		<div class="container-fluid">
-        		<div class="container">
-					<nav class="breadcrumb bg-transparent m-0 p-0">
-						<a class="breadcrumb-item" href="#">Home</a>
-						<a class="breadcrumb-item" href="#">News</a>
-						<span class="breadcrumb-item text-capitalize active">Latest</span>
+      		<div className="container-fluid">
+        		<div className="container">
+					<nav className="breadcrumb bg-transparent m-0 p-0">
+						<a className="breadcrumb-item" href="/home">Home</a>
+						<a className="breadcrumb-item" href="/home">News</a>
+						<span className="breadcrumb-item text-capitalize active">Latest</span>
 					</nav>
 				</div>
 			</div>
 
-			<div class="container-fluid py-3">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-8">
-							<div class="row">
-								<div class="col-12">
-									<div class="d-flex align-items-center justify-content-between bg-light py-2 px-4 mb-3">
-										<h3 class="m-0 text-capitalize">Latest news</h3>
+			<div className="container-fluid py-3">
+				<div className="container">
+					<div className="row">
+						<div className="col-lg-8">
+							<div className="row">
+								<div className="col-12">
+									<div className="d-flex align-items-center justify-content-between bg-light py-2 px-4 mb-3">
+										<h3 className="m-0 text-capitalize">Latest news</h3>
 									</div>
 								</div>
 								{ newsList.slice(0, 4).map((news) => (
-									<div class="col-lg-6" key={news._id}>
+									<div className="col-lg-6" key={news._id}>
 										<News news={news}/>
 									</div>
 								))}
 							</div>
-							<div className="row">
+							<div classNameName="row">
 								{ newsList.slice(4, newsList.length).map((news) => (
-									<div class="col-lg-6" key={news._id}>
+									<div className="col-lg-6" key={news._id}>
 										<BriefNews news={news}/>
 									</div>
 								))}
 							</div>
 
-							<div class="row">
-								<div class="col-12">
+							<div className="row">
+								<div className="col-12">
 									<Paginator currentPage={page} setCurrentPage={setPage} totalPages={totalPages}/>
 								</div>
 							</div>

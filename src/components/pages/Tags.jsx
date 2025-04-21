@@ -21,7 +21,7 @@ const Tags = () => {
 		<div className="col-lg-4 pt-3 pt-lg-0">
 			<div className="pb-3">
 				<div className="bg-light py-2 px-4 mb-3">
-				<h3 className="m-0">Follow Us</h3>
+					<h3 className="m-0">Follow Us</h3>
 				</div>
 				<div className="d-flex mb-3">
 				<a href="#" className="d-block w-50 py-2 px-3 text-white text-decoration-none mr-2" style={{ background: '#39569E' }}>

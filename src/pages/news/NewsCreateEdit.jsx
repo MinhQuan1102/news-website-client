@@ -90,16 +90,16 @@ const NewsCreateEdit = () => {
 
     return (
         <div id="news-create-edit">
-            <div class="container-fluid">
-                <div class="container">
-                    <nav class="breadcrumb bg-transparent m-0 p-0">
-                    <a class="breadcrumb-item" href="/home">Home</a>
-                    <a class="breadcrumb-item" href={`/news/list/${user._id}`}>News</a>
+            <div className="container-fluid">
+                <div className="container">
+                    <nav className="breadcrumb bg-transparent m-0 p-0">
+                    <a className="breadcrumb-item" href="/home">Home</a>
+                    <a className="breadcrumb-item" href={`/news/list/${user._id}`}>News</a>
                     {
                         newsId ?   
-                            <span class="breadcrumb-item active">Edit news</span>
+                            <span className="breadcrumb-item active">Edit news</span>
                         :
-                            <span class="breadcrumb-item active">Create news</span>
+                            <span className="breadcrumb-item active">Create news</span>
                     }
                     </nav>
                 </div>

@@ -36,14 +36,14 @@ const Popular = () => {
                 newsList.map((news) => (
                     <div className="col-lg-6" key={news._id}>
                         <div className="position-relative mb-3">
-                            <img className="img-fluid w-100" src={ news.thumbnail } alt="thumbnail" style={{ objectFit: "cover" }} />
+                            <img className="img-fluid w-100" src={ news.thumbnail } alt="thumbnail" style={{ objectFit: "cover" }} onClick={() => navigate(`/news/detail/${news._id}`)}/>
                             <div className="overlay position-relative bg-light">
                                 <div className="mb-2" style={{ fontSize: "14px" }}>
-                                    <a href="" className='text-capitalize'>{ news.category }</a>
+                                    <a href="" className='text-capitalize' onClick={() => navigate(`/category/${news.category}`)}>{ news.category }</a>
                                     <span className="px-1">/</span>
                                     <span>{ formatDate(news.createdAt )}</span>
                                 </div>
-                                <a className="h4" href="">{ news.title }</a>
+                                <a className="h4" href="" onClick={() => navigate(`/news/detail/${news._id}`)}>{ news.title }</a>
                                 <p className="m-0">{ news.content }</p>
                             </div>
                         </div>

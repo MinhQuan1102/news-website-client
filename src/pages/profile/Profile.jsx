@@ -3,6 +3,7 @@ import AvatarUpload from '../../components/imageUpload/AvatarUpload'
 import { getProfile, updateProfile } from '../../services/userService';
 import { useAuth } from '../../hooks/useAuth';
 import { toast } from 'react-toastify';
+import { cleanObj } from '../../utilities/utils';
 
 const Profile = () => {
     const { user, saveUser } = useAuth();
@@ -41,7 +42,6 @@ const Profile = () => {
 
     const onSubmit = async (e) => {
         e.preventDefault();
-        console.log(data);
         if ((data.currentPassword || data.newPassword)) {
             if (data.currentPassword) {
                 if (!data.newPassword) {
@@ -66,17 +66,16 @@ const Profile = () => {
             return;
         }
 
-        const result = await updateProfile({
+        const result = await updateProfile(cleanObj({
             userId: user._id,
             username: data.username,
             password: data.newPassword ?? "",
             description: data.description,
-            avatar
-        });
+            avatar: avatar
+        }));
         if (result) {
             toast.success(result.message);
             saveUser(result.user);
-            console.log(user);
             fetchUser();
         }
     }
@@ -91,7 +90,7 @@ const Profile = () => {
             <div className="container-fluid">
                 <div className="container">
                     <nav className="breadcrumb bg-transparent m-0 p-0">
-                        <a className="breadcrumb-item" href="#">Home</a>
+                        <a className="breadcrumb-item" href="/home">Home</a>
                         <span className="breadcrumb-item active">Profile</span>
                     </nav>
                 </div>

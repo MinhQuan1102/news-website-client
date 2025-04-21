@@ -61,31 +61,31 @@ const CategoryList = () => {
 
   	return (
     	<div id="category">
-      		<div class="container-fluid">
-        		<div class="container">
-					<nav class="breadcrumb bg-transparent m-0 p-0">
-						<a class="breadcrumb-item" href="#">Home</a>
-						<a class="breadcrumb-item" href="#">Category</a>
-						<span class="breadcrumb-item text-capitalize active">List</span>
+      		<div className="container-fluid">
+        		<div className="container">
+					<nav className="breadcrumb bg-transparent m-0 p-0">
+						<a className="breadcrumb-item" href="/home">Home</a>
+						<a className="breadcrumb-item" href="/category/list">Category</a>
+						<span className="breadcrumb-item text-capitalize active">List</span>
 					</nav>
 				</div>
 			</div>
 
-			<div class="container-fluid py-3">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-8">
-							<div class="row">
-								<div class="col-12">
-									<div class="d-flex align-items-center justify-content-between bg-light py-2 px-4 mb-3">
-										<h3 class="m-0 text-capitalize">List category</h3>
+			<div className="container-fluid py-3">
+				<div className="container">
+					<div className="row">
+						<div className="col-lg-8">
+							<div className="row">
+								<div className="col-12">
+									<div className="d-flex align-items-center justify-content-between bg-light py-2 px-4 mb-3">
+										<h3 className="m-0 text-capitalize">List category</h3>
 									</div>
 								</div>
 								{ categories.map((category) => (
-									<div class="col-lg-12" key={category}>
-                                        <div class="position-relative overflow-hidden mb-3" style={{ height: "80px" }} onClick={() => navigate(`/category/${category}`)}>
-                                            <img class="img-fluid w-100 h-100" src={getCategoryImage(category)} style={{ objectFit: "cover" }} />
-                                            <a href="" class="overlay align-items-center justify-content-center h4 m-0 text-white text-decoration-none text-capitalize">
+									<div className="col-lg-12" key={category}>
+                                        <div className="position-relative overflow-hidden mb-3" style={{ height: "80px" }} onClick={() => navigate(`/category/${category}`)}>
+                                            <img className="img-fluid w-100 h-100" alt="category image" src={getCategoryImage(category)} style={{ objectFit: "cover" }} />
+                                            <a href="" className="overlay align-items-center justify-content-center h4 m-0 text-white text-decoration-none text-capitalize">
                                                 { category }
                                             </a>
                                         </div>

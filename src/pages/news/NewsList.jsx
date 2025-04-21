@@ -48,7 +48,7 @@ const NewsList = () => {
 				<nav class="breadcrumb bg-transparent m-0 p-0">
 					<a class="breadcrumb-item" href="/home">Home</a>
 					<a class="breadcrumb-item" href="#">News</a>
-					<span class="breadcrumb-item active">{ user.username ?? ""}</span>
+					<span class="breadcrumb-item active">{ user?.username ?? ""}</span>
 				</nav>
 			</div>
 		</div>

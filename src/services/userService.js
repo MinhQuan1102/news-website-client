@@ -22,7 +22,8 @@ export const updateProfile = async ({
         const response = await axiosInstance.put(`/users/${userId}`, {
             username,
             password,
-            description
+            description,
+            avatar
         });
         return response;
     } catch (error) {

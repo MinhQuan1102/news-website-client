@@ -4,9 +4,10 @@ import Tags from '../../components/pages/Tags';
 import CommentForm from './CommentForm';
 import CommentList from './CommentList';
 import { useNavigate, useParams } from 'react-router-dom';
-import { getNewsDetail, increaseView } from '../../services/newsService';
+import { deleteNews, getNewsDetail, increaseView } from '../../services/newsService';
 import { formatDate } from '../../utilities/utils';
 import { useAuth } from '../../hooks/useAuth';
+import { toast } from 'react-toastify';
 
 const NewsDetail = () => {
 	const { newsId } = useParams();
@@ -30,6 +31,18 @@ const NewsDetail = () => {
             const response = await getNewsDetail(newsId);
             const fetchedNews = response.data;
             setNews(fetchedNews);
+        } catch (error) {   
+            console.log(error);
+        }
+	}
+
+	const onDeleteNews = async (newsId) => {
+		try {
+            const result = await deleteNews(newsId);
+            if (result) {
+                toast.success(result.message);
+				navigate(`/news/list/${user._id}`);
+            }
         } catch (error) {   
             console.log(error);
         }
@@ -74,7 +87,7 @@ const NewsDetail = () => {
 										user._id === news?.author._id && (
 											<div className="btn-actions">
 												<button className="btn btn-sm btn-outline-secondary font-weight-semi-bold py-2 mr-3" style={{ width: "80px"}} onClick={() => navigate(`/news/edit/${news._id}`)}>Edit</button>
-												<button className="btn btn-primary font-weight-semi-bold py-2" style={{ width: "80px"}}>Delete</button>
+												<button className="btn btn-primary font-weight-semi-bold py-2" style={{ width: "80px"}} onClick={() => onDeleteNews(news?._id)}>Delete</button>
 											</div>
 										)
 									}

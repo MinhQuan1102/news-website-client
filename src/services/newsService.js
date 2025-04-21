@@ -121,3 +121,15 @@ export const editNews = async ({
         console.error(error);
     }
 }
+
+export const deleteNews = async (
+    newsId,
+) => {
+    try {
+        const response = await axiosInstance.delete(`/news/${newsId}`);
+        return response;
+    } catch (error) {
+        toast.error(error?.message);
+        console.error(error);
+    }
+}

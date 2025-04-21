@@ -28,10 +28,10 @@ const TopNews = () => {
                 <div className="row w-100">
                     {
                         newsList.map((news) => (
-                            <div class="d-flex col-4" key={news._id} onClick={() => navigate(`/news/detail/${news._id}`)}>
-                                <img src={ news.thumbnail } style={{ width: "80px", height: "80px", objectFit: "cover" }} />
+                            <div class="d-flex col-4" key={news?._id} onClick={() => navigate(`/news/detail/${news?._id}`)}>
+                                <img src={ news?.thumbnail } style={{ width: "80px", height: "80px", objectFit: "cover" }} />
                                 <div class="d-flex align-items-center bg-light px-3 w-100" style={{ height: "80px" }}>
-                                    <a class="text-secondary font-weight-semi-bold" href="">{news.title}</a>
+                                    <a class="text-secondary font-weight-semi-bold" href="">{news?.title}</a>
                                 </div>
                             </div>
                         ))

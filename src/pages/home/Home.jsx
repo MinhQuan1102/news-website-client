@@ -7,32 +7,32 @@ import Tags from '../../components/pages/Tags';
 
 
 const Home = () => {
-  return (
-    <div id="home">
-      {/* Breadcrumb Start */}
-      <div className="container-fluid">
-          <div className="container">
-              <nav className="breadcrumb bg-transparent m-0 p-0">
-                  <a className="breadcrumb-item active" href="#">Home</a>
-              </nav>
-          </div>
-      </div>
-      {/* Breadcrumb End */}
+	return (
+		<div id="home">
+			{/* Breadcrumb Start */}
+			<div className="container-fluid">
+				<div className="container">
+					<nav className="breadcrumb bg-transparent m-0 p-0">
+						<a className="breadcrumb-item active" href="#">Home</a>
+					</nav>
+				</div>
+			</div>
+			{/* Breadcrumb End */}
 
-      <TopNews />
-      <Main />
-      <Featured />
+			<TopNews />
+			<Main />
+			<Featured />
 
-      <div className="container-fluid py-3">
-        <div className="container">
-          <div className="row">
-            <Popular />
-            <Tags />
-          </div>
-        </div>
-      </div>
-    </div>
-  )
+			<div className="container-fluid py-3">
+				<div className="container">
+					<div className="row">
+						<Popular />
+						<Tags />
+					</div>
+				</div>
+			</div>
+		</div>
+	)
 }
 
 export default Home

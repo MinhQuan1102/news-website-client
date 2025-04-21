@@ -30,7 +30,7 @@ const Featured = () => {
             </div>
             <div className="d-flex position-relative" style={{ gap: "20px" }}>
                 { newsList.map((news) => (
-                    <div className="position-relative overflow-hidden" style={{ height: "300px", flex: 1 }} key={news._id} onClick={() => navigate(`/news/detail/${news._id}`)}>
+                    <div className="position-relative overflow-hidden" style={{ height: "300px", flex: 1 }} key={news?._id} onClick={() => navigate(`/news/detail/${news._id}`)}>
                         <img className="img-fluid w-100 h-100" src={ news?.thumbnail } alt="thumbnail" style={{ objectFit: "cover" }} />
                         <div className="overlay">
                             <div className="mb-1" style={{ fontSize: "13px" }}>
